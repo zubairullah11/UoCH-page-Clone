@@ -1,0 +1,505 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>University of Chitral</title>
+	<style>
+		@import url('https://fonts.googleapis.com/css2?family=Baloo+Bhai+2:wght@400..800&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+		*{
+			margin: 0;
+			padding: 0;
+			box-sizing: border-box;
+		}
+		body{
+			font-family: 'Poppins', sans-serif;
+			background: #dfdfdf;
+		}
+		.header{
+			position: relative;
+			display: flex;
+			justify-content: space-between;
+			align-items: center;
+			padding: 10px 20px;
+			flex-wrap: wrap;
+			height: 130px;
+			background: linear-gradient(#ffffff, #ffffff) 50% 50%/calc(100% - 20px) calc(100% - 20px) no-repeat, linear-gradient(90deg, rgba(135,209,230,1) 0%, rgba(196,207,218,1) 50%, rgba(255,205,0,1) 100%);
+		}
+		.header .logo{
+			width: 50%;
+		}
+		.header .links{
+			width: 50%;
+		}
+		.header .logo img{
+			width: 325px;
+			height: 59.99px;
+		}
+		.header .links a{
+			text-decoration: none;
+			margin-left: 15px;
+			padding: 0.5rem 1rem;
+			color: #52237f;
+			line-height: 2rem;
+		}
+		.navigation{
+			display: flex;
+			justify-content: space-between;
+			align-items: center;
+			width: 100%;
+			background: #52237f;
+		}
+		.navigation ul{
+			display: flex;
+			align-items: center;
+			text-decoration: none;
+			gap: 40px;
+			margin-top: 10px;
+			height: 100px;
+			color: #fff;
+			list-style: none;
+			border-bottom: transparent solid 5px;
+			padding-right: 0.5rem;
+    		padding-left: 0.5rem;
+    		width: 1100px;
+		}
+		.navigation ul li{
+			cursor: pointer;
+		}
+		.navigation ul li:hover{
+			color: #c1bdbd;
+			border-bottom: 4px solid #ffc107;
+		}
+		.searchBar{
+			width: 230px;
+			height: 100px;
+			margin-top: 10px;
+			display: flex;
+			justify-content: flex-start;
+			flex-wrap: wrap;
+			align-items: center;
+		}
+		input{
+			width: 220px;
+			height: 50px;
+		}
+		button{
+			color: #ffc107;
+    		background: transparent;
+    		width: 70px;
+    		height: 40px;
+    		border: 1px solid #ffc107;
+    		cursor: pointer;
+		}
+		button:hover{
+			background: #ffc107;
+			color: #000;
+		}
+		.pictures{
+			width: 100%;
+			height: 650px;
+			position: relative;
+			overflow: hidden;
+			margin: auto;
+		}
+		.slider{
+			display: flex;
+			width: 500%;
+			height: 100%;
+			animation: slide 10s infinite linear;
+		}
+		.slider img{
+			width: 100%;
+			height: 100%;
+			object-fit: cover;
+			object-position: center;
+		}
+		@keyframes slide{
+			0% { margin-left: 0%; }
+			18% { margin-left: 0%; }
+
+			25% { margin-left: -100%; }
+			43% { margin-left: -100%; }
+
+			50% { margin-left: -200%; }
+			68% { margin-left: -200%; }
+
+			75% { margin-left: -300%; }
+			93% { margin-left: -300%; }
+
+			100% { margin-left: 0%; }
+		}
+		.container{
+			display: grid;
+  			grid-template-columns: 1fr 1fr;
+  			justify-content: space-between;
+  			padding: 0.5rem;
+  			overflow: hidden;
+  			padding: 0 15px;
+  			margin: 20px;
+		}
+		.box{
+			background-color: #fff;
+			border-left: 6px solid #620c91;
+			padding: 20px;
+			width: 581.82px;
+			margin: 0 auto;
+			overflow: hidden;
+			font-size: 17px;
+			box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+		}
+		.heading{
+			color: #fff;
+			padding: 15px 20px;
+			margin: -20px -20px 20px -20px;
+			height: 60px;
+		}
+		.heading h2{
+			background-color: #620c91;
+  			color: white;
+  			padding: 10px;
+  			margin-bottom: 10px;
+  			font-size: 18px;
+  			border-radius: 4px;
+		}
+		.box h3{
+			margin-top: 10px;
+  			font-style: italic;
+  			font-size: 16px;
+  			color: #333;
+		}
+		.content-wrapper{
+			display: flex;
+			align-items: flex-start;
+			gap: 20px;
+		}
+		.image-container{
+			flex-shrink: 0;
+			width: 200px;
+		}
+		.image-container img{
+			max-width: 100%;
+			height: auto;
+			display: block;
+		}
+		.text-content{
+			flex-grow: 1;
+			color: #333;
+		}
+		.text-content p:last-child{
+			margin-bottom: 0;
+		}
+		.text-content a{
+			color: #007bff;
+			text-decoration: none;
+		}
+		.text-content a:hover{
+			text-decoration: underline;
+		}
+		.info-cards {
+  			display: flex;
+ 			gap: 20px;
+  			flex-wrap: wrap;
+		}
+		.card {
+  			flex: 1;
+  			background: #fff;
+  			padding: 15px;
+  			border-left: 4px solid #1581c1;
+  			min-width: 200px;
+  			height: 500px;
+  			border-radius: 4px;
+  			box-shadow: 0 1px 6px rgba(0,0,0,0.05);
+		}
+		.card h3 {
+			background: #f6f6f6;
+			padding: 8px 20px;
+  			color: #000;
+  			font-size: 24px;
+  			font-weight: 700;
+  			width: 100%;
+  			margin-bottom: 10px;
+
+		}
+		.card p {
+  			margin: 10px 0;
+  			font-size: 14px;
+		}
+		.card a{
+			text-decoration: none;
+			font-weight: bold;
+			color: #52237f;
+		}
+		.card button {
+  			background: #620c91;
+  			color: white;
+  			border: none;
+  			width: 160px;
+  			padding: 6px 12px;
+  			cursor: pointer;
+  			border-radius: 4px;
+  			align-self: center;
+		}
+		.news-btn{
+			margin-left: 30%;
+			margin-top: 70%;
+		}
+		.event-btn{
+			margin-left: 30%;
+			margin-top: 10%;
+		}
+		.maps{
+			display: grid;
+			grid-template-columns: 1fr 1fr;
+			justify-content: space-between;
+			width: 100%;
+			height: 600px;
+			padding: 10px 20px;
+		}
+		.maps iframe{
+			height: 500px;
+			width: 650px;
+			object-fit: cover;
+			padding: 20px;
+			background: white;
+		}
+		.h3{
+			color: #fff;
+			padding: 15px 20px;
+			margin: -20px -20px 20px -20px;
+			height: 60px;
+		}
+		.maps h3{
+			background-color: #620c91;
+  			color: white;
+  			padding: 10px;
+  			margin-top: 10px;
+  			margin-bottom: 10px;
+  			font-size: 18px;
+  			border-radius: 10px;
+  			width: 600px;
+		}
+		.footer {
+  			background-color: #4b0082;
+ 			color: white;
+  			padding: 30px 20px 10px;
+  			font-size: 14px;
+		}
+		.footer-container {
+  			display: flex;
+  			flex-wrap: wrap;
+  			justify-content: space-around;
+  			gap: 20px;
+  			margin-bottom: 20px;
+		}
+		.footer-box {
+  			flex: 1;
+  			min-width: 250px;
+  			font-size: 16px;
+		}
+		.footer-box h2 {
+  			margin-bottom: 10px;
+  			font-size: 28px;
+		}
+		.footer-box ul {
+  			padding: 0;
+		}
+		.footer-box ul li a {
+  			color: white;
+  			text-decoration: none;
+  			display: block;
+  			margin: 5px 0;
+  			cursor: pointer;
+		}
+		.footer-box ul li a:hover{
+			color: orange;
+		}
+		.footer-box p {
+  			margin: 5px 0;
+		}
+		.footer-box iframe {
+  			margin-top: 10px;
+  			border-radius: 4px;
+		}
+		.footer-bottom {
+  			text-align: center;
+  			border-top: 1px solid #999;
+  			padding-top: 20px;
+		}
+		.footer-bottom img {
+  			margin-bottom: 10px;
+		}
+		.social-icons {
+  			margin: 10px 0;
+		}
+		.social-icons a {
+  			margin: 0 8px;
+  			display: inline-block;
+		}
+		.disclaimer {
+  			margin: 0 0 16px;
+  			font-size: 16px;
+  			color: #ffffff;
+		}
+	</style>
+</head>
+<body>
+	<header class="header">
+		<div class="logo">
+			<img src="https://uoch.edu.pk/public/front/images/uaflogoBlue.png" alt="Logo">
+		</div>
+
+		<div class="links">
+			<a href="#">HEC-Digital-Library</a>
+			<a href="#">TURNITIN</a>
+			<a href="#">EMAIL</a>
+			<a href="#">JOBS</a>
+			<a href="#">TENDERS</a>
+			<a href="#">DOWNLOADS</a>
+			<a href="#">ONLINE-ADMISSION</a>
+		</div>
+	</header>
+
+		<nav class="navigation">
+			<ul>
+				<li>Home</li>
+				<li>About</li>
+				<li>Administration</li>
+				<li>Admissions</li>
+				<li>Academics</li>
+				<li>Examinations</li>
+				<li>YDC</li>
+				<li>Projects</li>
+				<li>Budgets</li>
+				<li>Research</li>
+			</ul>
+
+			<div class="searchBar">
+				<input type="text" placeholder="Search">
+				<button>Search</button>
+			</div>
+		</nav>
+
+		<section class="pictures">
+			<div class="slider">
+				<img src="https://uoch.edu.pk/public/upload/banner/87765747-2025-06-10.jpg" alt="Slide1">
+				<img src="https://uoch.edu.pk/public/upload/banner/1288873485-2025-05-31.jpeg" alt="Slide2">
+				<img src="https://uoch.edu.pk/public/upload/banner/260194538-2023-12-20.jpg" alt="Slide3">
+				<img src="https://uoch.edu.pk/public/upload/banner/1308242739-2023-11-10.jpg" alt="Slide4">
+				<img src="https://uoch.edu.pk/public/upload/banner/87765747-2025-06-10.jpg" alt="Slide1 again(loop)">
+			</div>
+		</section>
+
+		<main class="contents">
+			<div class="container">
+				<div class="box">
+					<div class="heading">
+						<h2>Welcome to the University of Chitral</h2>
+					</div>
+					<div class="content-wrapper">
+						<div class="image-container">
+							<img src="https://uoch.edu.pk/public/upload/uni-pics/239246594-2023-11-10.jpg" alt="VC">
+						</div>
+						<h3>Generate and Disseminate Knowledge</h3>
+					</div>
+					<div class="text-content">
+            			<p>To serve the society by nurturing the students with a delicate intellectual, cultural, ethical, and humane sensitivity through a pleasant blend of ancient and modern wisdom; to foster a scientific temper and to promote professional and technological expertise.</p>
+            			<p>Pivotal to this vision is a commitment to contributing in local, national and international development, concomitantly adhering to the dictates of our social ethics, traditions and environment. <a href="#">Read More</a></p>
+        			</div>
+				</div>
+
+				<div class="box">
+					<div class="heading">
+						<h2>Vice Chancellor's Message</h2>
+					</div>
+					<div class="content-wrapper">
+						<div class="image-container">
+							<img src="https://uoch.edu.pk/public/upload/uni-pics/1973356757-2025-06-02.jpeg" alt="VC">
+						</div>
+						<div class="text-content">
+            				<p>Welcome to the University of Chitral-a new established public sector university in Khyber Pakhtunkhwa, Pakistan. Our mission goes beyond simply classroom teaching and basic research-we strive to provide an academic environment that encourages dialogue, critical thinking, innovation and respect for diversity and inclusiveness. Our faculty is committed to excellence in teaching, research, and community engagement-bringing real-world experience into the classroom.</p>
+            				<p><a href="#">Read More</a></p>
+        				</div>
+					</div>
+				</div>
+			</div>
+
+			<section class="info-cards">
+      			<div class="card">
+        			<h3>Monthly Newsletter</h3>
+      			</div>
+      			<div class="card">
+        			<h3>Latest News</h3>
+        			<a href="#">NCHD representatives visitUniversity of Chitral</a>
+        			<br><br>
+        			<a href="#">Final merit list of Students for Prime Minister Youth Laptop Scheme Phase-IV</a>
+        			<button class="news-btn">News Archive</button>
+      			</div>
+      			<div class="card">
+        			<h3>Upcoming Events</h3>
+        			<p><a href="#">Department of Botany, University of Chitral is going to organize “Plantation Drive”at University of Chitral on 11th July, 2025.</a></p>
+        			<p>July 10, 2025</p>
+        			<button class="event-btn">Event Archive</button>
+      			</div>
+    		</section>
+		</main>
+
+		<div class="maps">
+			<div class="pakistan-map">
+				<h3 class="h3">Political Map of Pakistan</h3>
+				<iframe src="https://uoch.edu.pk/public/front/images/political_map_pakistan-2048x1024.png"  width="564" frameborder="0"></iframe>
+			</div>
+			<div class="campus-map">
+				<h3 class="h3">Campus Location</h3>
+				<iframe 
+          			src="https://maps.google.com/maps?q=University%20of%20Chitral&t=&z=13&ie=UTF8&iwloc=&output=embed"
+          			width="400" height="250" style="border:0;" allowfullscreen="" loading="lazy">
+        		</iframe>
+			</div>
+		</div>
+
+		<footer class="footer">
+    		<div class="footer-container">
+      			<div class="footer-box">
+        			<h2>University of Chitral</h2>
+        			<p>Seen Lasht Garam chashma Road Chitral (Lower)</p>
+        			<iframe 
+          				src="https://maps.google.com/maps?q=University%20of%20Chitral&t=&z=13&ie=UTF8&iwloc=&output=embed"
+          				width="400" height="250" style="border:0;" allowfullscreen="" loading="lazy">
+        			</iframe>
+      			</div>
+
+      			<div class="footer-box">
+        			<h2>Contact us</h2>
+        			<p>+92-943-415001 (PS to VC)</p>
+        			<p>Or Visit our Campus<br>Seenlasht Garam Chashma Road Chitral (Lower)</p>
+      			</div>
+
+      			<div class="footer-box">
+        			<h2>About Us</h2>
+        			<ul>
+          				<li><a href="#">Faculties</a></li>
+          				<li><a href="#">Centres and institutes</a></li>
+          				<li><a href="#">Campus location</a></li>
+          				<li><a href="#">Map and location</a></li>
+        			</ul>
+      			</div>
+    		</div>
+
+    		<div class="footer-bottom">
+      			<img src="https://uoch.edu.pk/public/front/images/uoch_logo_white1-300x51.png" alt="Logo" height="40">
+      			<div class="social-icons">
+        			<a href="#"><img src="https://cdn-icons-png.flaticon.com/512/145/145802.png" alt="Facebook" width="24"></a>
+        			<a href="#"><img src="https://cdn-icons-png.flaticon.com/512/145/145812.png" alt="Twitter" width="24"></a>
+        			<a href="#"><img src="https://cdn-icons-png.flaticon.com/512/145/145807.png" alt="YouTube" width="24"></a>
+      			</div>
+      			<p class="disclaimer">
+        		Disclaimer | Privacy Policy | Accessibility | Website feedback
+        		This is an official page/publication of the University of Chitral.
+        		2025 University of Chitral. Designed by: IT Department, University of Chitral
+      			</p>
+    		</div>
+  </footer>
+</body>
+</html>
